@@ -126,6 +126,9 @@ class AdminController extends ClientController {
         return $customer;
     }
     
+    public function getDuePayments() {
+        return $this->databaseController->getDuePayments();
+    }
   
 }
 

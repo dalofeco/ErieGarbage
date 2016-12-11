@@ -55,9 +55,8 @@ class ControllerTester {
     
 }
 
-//$tester = new ControllerTester();
-//$tester->addBillToAll();
-//$tester->testTokenValidation();
+$tester = new ControllerTester();
+$tester->addBillToAll();
 ;
 
 

@@ -1,6 +1,6 @@
 <?php
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-require_once $rootDir . '/classes/controller/DatabaseController.php';
+require_once $rootDir . '/classes/controller/AdminController.php';
 require_once $rootDir . '/classes/view/Header.php';
 require_once $rootDir .  '/classes/view/View.php';
 
@@ -11,7 +11,8 @@ class DuePaymentsView extends View{
     
     
     function __construct() {
-        parent::__construct();
+        $this->clientController = new AdminController();
+        $this->permissions = $this->clientController->getPermissions();
         
         
         if ($this->clientController->isAuthenticated()) {
@@ -52,7 +53,7 @@ class DuePaymentsView extends View{
     }
     
     private function printDuePayments() {
-        $dueBills = $this->databaseController->getDuePayments();
+        $dueBills = $this->clientController->getDuePayments();
         foreach($dueBills as $bill) {
             $billEntry = '<div class="past-entry">
                         <div class="name-column">

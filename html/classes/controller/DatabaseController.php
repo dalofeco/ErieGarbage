@@ -778,7 +778,7 @@ class DatabaseController {
     // Output: Array of Bill objects
         // Authenticate first
         if ($this->authenticated) {
-            if ($this->getPermissions() === self::ACTIVE_ADMIN_PERMISSION()) {
+            if ($this->permissions === self::ACTIVE_ADMIN_PERMISSION()) {
 
                 $bills = [];
 
